@@ -41,6 +41,7 @@ ep.photos = [];
 // init to -1 until the first image is loaded
 var activeIndex = -1;
 
+
 // IE doesn't have indexOf, wtf...
 if (!Array.indexOf) {
     Array.prototype.indexOf = function (obj) {
@@ -91,13 +92,13 @@ $(function () {
 		}else{
 			e621pLimit = getQueryVariable("limit");
 		}
-var username = getQueryVariable("un");
-var apiKey = getQueryVariable("key");
+	var username = getQueryVariable("un");
+	var apiKey = getQueryVariable("key");
 
-	   const response = await fetch("https://e621.net/posts.json", {
+   const response = await fetch("https://e621.net/posts.json", {
   headers: {
     "Authorization": "Basic " + btoa(`${username}:${apiKey}`),
-    "User-Agent": "cochraLogica/1.0 (by username on e621)"
+    "User-Agent": "cochraLogica/1.0"
   }
 });
 console.log(await response.json());
