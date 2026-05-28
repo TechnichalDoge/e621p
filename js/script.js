@@ -55,7 +55,7 @@ if (!Array.indexOf) {
 
 // IE doesn't have console.log and fails, wtf...
 // usage: log('inside coolFunc',this,arguments);
-// http://paulirish.com/2009log-a-lightweight-wrapper-for-consolelog/
+// http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function () {
     log.history = log.history || []; // store logs to an array for reference
     log.history.push(arguments);
@@ -138,7 +138,7 @@ console.log(await response.json());
                 if (!ep.photos[i].over18) {
                     return startAnimation(i);
                 }
-        ;    }
+            }
         }
         if (isLastImage(activeIndex) && !loadingNextImages) {
             // the only reason we got here and there aren't more pictures yet
