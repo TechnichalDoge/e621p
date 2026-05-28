@@ -41,6 +41,10 @@ ep.photos = [];
 // init to -1 until the first image is loaded
 var activeIndex = -1;
 
+# setting up variables for POST request
+url = "https://e621.net/iqdb_queries.json"
+headers = {'user-agent': 'hydrusBatchSauce/corposim'}
+auth = requests.auth.HTTPBasicAuth(USERNAME, API_KEY)
 
 // IE doesn't have indexOf, wtf...
 if (!Array.indexOf) {
