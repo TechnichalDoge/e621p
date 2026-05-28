@@ -101,7 +101,6 @@ $(function () {
     "User-Agent": "cochraLogica/1.0"
   }
 });
-console.log(await response.json());
 
     fadeoutWhenIdle = true;
     var setupFadeoutOnIdle = function () {
