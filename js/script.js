@@ -41,11 +41,6 @@ ep.photos = [];
 // init to -1 until the first image is loaded
 var activeIndex = -1;
 
-# setting up variables for POST request
-url = "https://e621.net/iqdb_queries.json"
-headers = {'user-agent': 'hydrusBatchSauce/corposim'}
-auth = requests.auth.HTTPBasicAuth(USERNAME, API_KEY)
-
 // IE doesn't have indexOf, wtf...
 if (!Array.indexOf) {
     Array.prototype.indexOf = function (obj) {
@@ -60,7 +55,7 @@ if (!Array.indexOf) {
 
 // IE doesn't have console.log and fails, wtf...
 // usage: log('inside coolFunc',this,arguments);
-// http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+// http://paulirish.com/2009log-a-lightweight-wrapper-for-consolelog/
 window.log = function () {
     log.history = log.history || []; // store logs to an array for reference
     log.history.push(arguments);
@@ -96,6 +91,16 @@ $(function () {
 		}else{
 			e621pLimit = getQueryVariable("limit");
 		}
+var username = getQueryVariable("un");
+var apiKey = getQueryVariable("key");
+
+	   const response = await fetch("https://e621.net/posts.json", {
+  headers: {
+    "Authorization": "Basic " + btoa(`${username}:${apiKey}`),
+    "User-Agent": "cochraLogica/1.0 (by username on e621)"
+  }
+});
+console.log(await response.json());
 
     fadeoutWhenIdle = true;
     var setupFadeoutOnIdle = function () {
@@ -133,7 +138,7 @@ $(function () {
                 if (!ep.photos[i].over18) {
                     return startAnimation(i);
                 }
-            }
+        ;    }
         }
         if (isLastImage(activeIndex) && !loadingNextImages) {
             // the only reason we got here and there aren't more pictures yet
