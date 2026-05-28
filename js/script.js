@@ -95,7 +95,7 @@ $(function () {
 	var username = getQueryVariable("un");
 	var apiKey = getQueryVariable("key");
 
-   const response = await fetch("https://e621.net/posts.json", {
+   const response = fetch("https://e621.net/posts.json", {
   headers: {
     "Authorization": "Basic " + btoa(`${username}:${apiKey}`),
     "User-Agent": "cochraLogica/1.0"
