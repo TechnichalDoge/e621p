@@ -769,7 +769,8 @@ $(function () {
         }
 
         var jsonUrl = "https://e621.net/posts.json?tags="+e621pRating+"+"+e621pTags +"&limit="+ e621pLimit+`&page=${e621pAfterId != 0 ? (e621pDescending ? "b": "a") : ("") }`+e621pAfterId;
-        //console.log(jsonUrl);
+        var jsonUrl = "https://e621.net/posts.json?tags="+e621pRating+"+"+e621pTags +"&limit="+ e621pLimit+`&page=1`+e621pAfterId;
+		//console.log(jsonUrl);
         //log(jsonUrl);
         var failedAjax = function (data) {
             alert("Failed ajax, maybe a bad url? Sorry about that :(");
